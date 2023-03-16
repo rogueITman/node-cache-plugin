@@ -1,0 +1,17 @@
+{
+  "type": "component",
+  "metadata": {},
+  "schema": {
+    "name": "node-cache",
+    "friendlyName": "node-cache",
+    "description": "Simple and fast NodeJS internal caching. Node internal in memory cache like memcached.",
+    "icon": "Text",
+    "settings": [
+      {
+        "type": "text",
+        "key": "text",
+        "label": "Text"
+      }
+    ]
+  }
+}
