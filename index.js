@@ -2,7 +2,7 @@ import Wrapper from "./lib/Wrapper.svelte"
 import schema from "./schema.json"
 import pkg from "./package.json"
 import axios from 'axios';
-import NodeCache from './node-cache-master/lib/node_cache';
+import NodeCache from './node-cache-master/_src/lib/node_cache';
 
 //const NodeCache = require('node-cache/lib/node_cache');
 
