@@ -1,0 +1,16 @@
+.git*
+*.png
+/logo
+*.sublime*
+.DS_Store
+node_modules
+npm-debug.log
+*.coffee
+/dockertests
+/test
+*.yml
+coffeelint.json
+.editorconfig
+coverage/
+.nyc_output/
+lcov.info

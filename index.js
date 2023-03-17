@@ -2,14 +2,16 @@ import Wrapper from "./lib/Wrapper.svelte"
 import schema from "./schema.json"
 import pkg from "./package.json"
 import axios from 'axios';
+import NodeCache from './node-cache-master/lib/node_cache';
 
-const NodeCache = require('node-cache/lib/node_cache');
+//const NodeCache = require('node-cache/lib/node_cache');
 
 // Initialize the cache with the appropriate options.
 const cache = new NodeCache({ stdTTL: 259200, checkperiod: 259200, useClones: true });
 
 // Define your plugin's entry point function.
 async function myPlugin(props) {
+  console.log("NodeCache | myPlugin() | props: ",props);
   // Check if there is a cached result for the API call.
   const cachedResult = cache.get('apiResult');
   if (cachedResult) {
@@ -26,11 +28,13 @@ async function myPlugin(props) {
 
 // Define a funnction to call the API.
 async function callApi(props) {
+  console.log("NodeCache | callApi()...");
     const { url, params, headers } = props;
 
     // Make the API request using the axios library
     const response = await axios.get(url, { params, headers});
 
+    console.log("NodeCache | myPlugin() | response: ",response);
     // Return the API response data.
     return response.data;
 }
