@@ -5,10 +5,10 @@ import axios from 'axios';
 import NodeCache from 'node-cache';
 //import NodeCache from './node-cache-master/node_modules/node-cache/lib/node_cache';
 //const NodeCache = require('node-cache/lib/node_cache');
-
+debugger;
 // Initialize the cache with the appropriate options.
 const cache = new NodeCache({ stdTTL: 259200, checkperiod: 259200, useClones: true });
-
+debugger;
 // Define your plugin's entry point function.
 async function myPlugin(props) {
   console.log("NodeCache | myPlugin() | props: ",props);
