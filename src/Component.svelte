@@ -7,9 +7,12 @@
 
   const { styleable } = getContext("sdk")
   const component = getContext("component")
-  "{{host}}/city/list?state={{ Binding.state }}&page={{ Binding.page }}&items={{ Binding.items }}"
   const url = "https://api.mashvisor.com/v1.1/client"
-  const params = "?state=MO&page=1&items=50"
+  const params = {
+    state:"MO",
+    page:1,
+    items:50,
+  } 
   const headers = {
     "x-api-key": "4ebea5e8-286d-492f-a2e4-137f97e1aa8d"
   }
