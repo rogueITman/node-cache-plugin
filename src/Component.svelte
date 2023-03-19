@@ -7,7 +7,7 @@
 
   const { styleable } = getContext("sdk")
   const component = getContext("component")
-  const url = "https://api.mashvisor.com/v1.1/client"
+  const url = "https://api.mashvisor.com/v1.1/client/city/list"
   const params = {
     state:"MO",
     page:1,
