@@ -9,32 +9,40 @@ console.log("Logging NodeCache: ...", NodeCache);
 // Initialize the cache with the appropriate options.
 const cache = new NodeCache({ stdTTL: 259200, checkperiod: 259200, useClones: true });
 console.log("Logging Cache: ...", cache);
+
+export const PROPS = {
+  url: "",
+  params: "",
+  headers: null,
+  key: "apiResult",
+}
+
 // Define your plugin's entry point function.
-async function myPlugin(props) {
-  console.log("NodeCache | myPlugin() | props: ",props);
+export async function cacheApi(props = PROPS) {
+  console.log("Index.js | NodeCache | cacheApi() | props: ",props);
   // Check if there is a cached result for the API call.
-  const cachedResult = cache.get('apiResult');
+  const cachedResult = cache.get(props.key);
   if (cachedResult) {
     // Use the cached result.
     return { data: cachedResult };
   } else {
     // Call the API and cache the result.
     const result = await callApi(props);
-    cache.set('apiResult', result);
+    cache.set(props.key, result);
     // Return the result.
     return { data: result };
   }
 }
 
-// Define a funnction to call the API.
+// Define a function to call the API.
 async function callApi(props) {
-  console.log("NodeCache | callApi()...");
+  console.log("Index.js | NodeCache | callApi()...");
     const { url, params, headers } = props;
 
     // Make the API request using the axios library
     const response = await axios.get(url, { params, headers});
 
-    console.log("NodeCache | myPlugin() | response: ",response);
+    console.log("Index.js | NodeCache | callApi() | response: ",response);
     // Return the API response data.
     return response.data;
 }
