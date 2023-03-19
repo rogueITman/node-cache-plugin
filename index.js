@@ -24,10 +24,11 @@ export async function cacheApi(props) {
     if (!result) {
       // Return the result.
       return { data: {} };
+    } else {
+      cache.set(props.key, result);
+      // Return the result.
+      return { data: result };
     }
-    cache.set(props.key, result);
-    // Return the result.
-    return { data: result };
   }
 }
 
