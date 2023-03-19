@@ -1,6 +1,6 @@
 <script>
   import { getContext } from "svelte"
-  import { cacheApi } from './index.js';
+  import { cacheApi } from '../index.js';
 
 
   export let text
