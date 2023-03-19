@@ -48,7 +48,7 @@ async function callApi(props) {
 }
 
 if (window) {
-    const plugin = { Component: Wrapper, schema, version: pkg.version, myPlugin }
+    const plugin = { Component: Wrapper, schema, version: pkg.version, cacheApi }
     if (!window["##BUDIBASE_CUSTOM_COMPONENTS##"]) {
         window["##BUDIBASE_CUSTOM_COMPONENTS##"] = []
     }
