@@ -21,6 +21,10 @@ export async function cacheApi(props) {
   } else {
     // Call the API and cache the result.
     const result = await callApi(props);
+    if (!result) {
+      // Return the result.
+      return { data: {} };
+    }
     cache.set(props.key, result);
     // Return the result.
     return { data: result };
@@ -35,7 +39,7 @@ async function callApi(props) {
     console.log("Index.js | NodeCache | headers ...", headers);
     debugger;
     // Make the API request using the axios library
-    const response = await axios.get({url, headers})
+    const response = await axios.get(url, {headers})
     .then(response => {
       console.log("AXIOS RESPONSE: ",response.data)
     })
@@ -44,8 +48,12 @@ async function callApi(props) {
     });
 
     console.log("Index.js | NodeCache | callApi() | response: ",response);
-    // Return the API response data.
-    return response.data;
+    if (!response) {
+      return response;
+    } else {
+      // Return the API response data.
+      return response.data;
+    }
 }
 
 if (window) {
