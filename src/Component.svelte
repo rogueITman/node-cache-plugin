@@ -7,7 +7,7 @@
 
   const { styleable } = getContext("sdk")
   const component = getContext("component")
-  const url = "https://api.mashvisor.com/v1.1/client/city/list"
+  const url = "https://api.mashvisor.com/v1.1/client/city/list?state=MO&page=1&items=50"
   const params = {
     state:"MO",
     page:1,
@@ -19,7 +19,7 @@
   const key = "ListCities"
   console.log("Component.svelte | cacheApi ...", cacheApi)
   console.log("Component.svelte | Calling cacheApi() ...")
-  cacheApi({url, params, headers, key})
+  cacheApi({url, headers, key})
 </script>
 
 <div use:styleable={$component.styles}>
