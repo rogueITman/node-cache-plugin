@@ -29,9 +29,10 @@ export async function cacheApi(props) {
 
 // Define a function to call the API.
 async function callApi(props) {
-  console.log("Index.js | NodeCache | callApi()...");
+    console.log("Index.js | NodeCache | callApi()...");
     const { url, headers } = props;
-
+    console.log("Index.js | NodeCache | url ...", url);
+    console.log("Index.js | NodeCache | headers ...", headers);
     // Make the API request using the axios library
     const response = await axios.get({url, headers});
 
