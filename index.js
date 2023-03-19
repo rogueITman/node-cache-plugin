@@ -33,6 +33,7 @@ async function callApi(props) {
     const { url, headers } = props;
     console.log("Index.js | NodeCache | url ...", url);
     console.log("Index.js | NodeCache | headers ...", headers);
+    debugger;
     // Make the API request using the axios library
     const response = await axios.get({url, headers});
 
