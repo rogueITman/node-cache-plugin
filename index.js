@@ -2,6 +2,7 @@ import Wrapper from "./lib/Wrapper.svelte"
 import schema from "./schema.json"
 import pkg from "./package.json"
 import axios from 'axios';
+import fetch from "node-fetch";
 import NodeCache from 'node-cache';
 //import NodeCache from './node-cache-master/node_modules/node-cache/lib/node_cache';
 //const NodeCache = require('node-cache/lib/node_cache');
@@ -40,13 +41,19 @@ async function callApi(props) {
     console.log("Index.js | NodeCache | headers ...", headers);
     debugger;
     // Make the API request using the axios library
-    const response = await axios.get(url, {headers})
-    .then(response => {
-      console.log("AXIOS RESPONSE: ",response.data)
+    // const response = await axios.get(url, {headers})
+    // .then(response => {
+    //   console.log("AXIOS RESPONSE: ",response.data)
+    // })
+    // .catch(err => {
+    //     console.log("AXIOS ERROR: ",err, err.response)
+    // });
+    fetch(url, {
+      headers: headers,
     })
-    .catch(err => {
-        console.log("AXIOS ERROR: ",err, err.response)
-    });
+      .then(response => response.json())
+      .then(data => console.log("FETCH RESPONSE: ", data))
+      .catch(error => console.log("FETCH ERROR: ", error));
 
     console.log("Index.js | NodeCache | callApi() | response: ",response);
     if (!response) {
